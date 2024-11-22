@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci2j42ac3c8v6"]
+
+[ext_resource type="Script" path="res://Scripts/menu_principal.gd" id="1_gk2ma"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gk2ma")
+
+[node name="VBoxBotones" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -149.0
+offset_right = 110.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="VBoxBotones"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.396078, 1)
+theme_override_font_sizes/font_size = 40
+text = "Simulación en realidad 
+virtual para la mejora
+ de nuestra ciudad"
+horizontal_alignment = 1
+
+[node name="Jugar" type="Button" parent="VBoxBotones"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.654902, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.654902, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Jugar"
+flat = true
+
+[node name="Salir" type="Button" parent="VBoxBotones"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.654902, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.654902, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Salir"
+flat = true
+
+[node name="Creditos" type="Label" parent="VBoxBotones"]
+layout_mode = 2
+text = "Creditos:
+Benavides Hernandez Isaac Alain
+Lomelí Flores Jesús Isaac
+Romo Valadez Jonathan Joshua"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxBotones/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxBotones/Salir" to="." method="_on_salir_pressed"]
