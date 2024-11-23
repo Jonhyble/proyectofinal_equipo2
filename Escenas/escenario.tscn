@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://dlwrc53baif2w"]
+[gd_scene load_steps=59 format=4 uid="uid://dlwrc53baif2w"]
 
 [ext_resource type="PackedScene" uid="uid://b2aet6w1m0ob0" path="res://Importaciones/calle_sincol.glb" id="1_pbajp"]
 [ext_resource type="PackedScene" uid="uid://7jb2ednmuj3c" path="res://Characters/mc.tscn" id="2_s1amq"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d14fxt8t12ayp" path="res://Importaciones/Tianguis/puesto2.glb" id="9_lxy33"]
 [ext_resource type="AudioStream" uid="uid://b02baaicrlkiu" path="res://chuntaro.mp3" id="12_0qykj"]
 [ext_resource type="PackedScene" uid="uid://dk1wikk6sa6ef" path="res://Importaciones/flecha.glb" id="12_evuq8"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="15_5adoj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00ris"]
 resource_name = "Material.001"
@@ -718,6 +719,10 @@ font_size = 32
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_vtjen"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_s1amq")]
@@ -1021,6 +1026,7 @@ transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, 24.30
 shape = SubResource("BoxShape3D_78dwh")
 
 [node name="flecha2" parent="Tianguis/Puestos/puesto2" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, -1.13687e-13, 0, 9, 0, 1.13687e-13, 0, 9, 23.3395, 43.0296, -10.7981)
 
 [node name="puesto1" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
@@ -1033,6 +1039,7 @@ transform = Transform3D(45, 0, 4.54747e-13, 0, 25, 0, 1.36424e-12, 0, 25, 23.495
 shape = SubResource("BoxShape3D_jsagt")
 
 [node name="flecha1" parent="Tianguis/Puestos/puesto1" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, -5.68434e-13, 0, 9, 0, 5.68434e-13, 0, 9, 26.183, 44.0511, -9.66705)
 
 [node name="puesto5" parent="Tianguis/Puestos" instance=ExtResource("9_bsldh")]
@@ -1045,6 +1052,7 @@ transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, -64.0
 shape = SubResource("BoxShape3D_54jyx")
 
 [node name="flecha5" parent="Tianguis/Puestos/puesto5" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, -5.68434e-13, 0, 9, 0, 5.68434e-13, 0, 9, -64.9162, 48.4702, -15.4329)
 
 [node name="puesto6" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
@@ -1057,6 +1065,7 @@ transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, 110.9
 shape = SubResource("BoxShape3D_mw20c")
 
 [node name="flecha6" parent="Tianguis/Puestos/puesto6" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, -1.13687e-13, 0, 9, 0, 1.13687e-13, 0, 9, 112.235, 43.0173, -15.9284)
 
 [node name="puesto7" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
@@ -1069,6 +1078,7 @@ transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, 23.49
 shape = SubResource("BoxShape3D_xdo0n")
 
 [node name="flecha7" parent="Tianguis/Puestos/puesto7" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, -5.68434e-13, 0, 9, 0, 5.68434e-13, 0, 9, 24.2368, 43.6079, -13.6625)
 
 [node name="puesto8" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
@@ -1081,6 +1091,7 @@ transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, 21.87
 shape = SubResource("BoxShape3D_6f7rk")
 
 [node name="flecha8" parent="Tianguis/Puestos/puesto8" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, -1.13687e-13, 0, 9, 0, 1.13687e-13, 0, 9, 24.0753, 46.1477, -22.4267)
 
 [node name="puesto9" parent="Tianguis/Puestos" instance=ExtResource("9_bsldh")]
@@ -1093,6 +1104,7 @@ transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, 197.69, 0, -11.3429)
 shape = SubResource("BoxShape3D_t75v2")
 
 [node name="flecha9" parent="Tianguis/Puestos/puesto9" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 195.515, 42.0531, -17.9395)
 
 [node name="puesto10" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
@@ -1105,6 +1117,7 @@ transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, 209.033, 0, -9.72246)
 shape = SubResource("BoxShape3D_o1vi8")
 
 [node name="flecha10" parent="Tianguis/Puestos/puesto10" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 207.773, 48.3165, -10.356)
 
 [node name="puesto11" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
@@ -1117,6 +1130,7 @@ transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, -51.8531, 0, -8.91228)
 shape = SubResource("BoxShape3D_ddgqf")
 
 [node name="flecha11" parent="Tianguis/Puestos/puesto11" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -53.9526, 44.978, -14.5096)
 
 [node name="puesto12" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
@@ -1129,6 +1143,7 @@ transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, -251.974, 0, -10.5327)
 shape = SubResource("BoxShape3D_4oa1i")
 
 [node name="flecha12" parent="Tianguis/Puestos/puesto12" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -253.48, 44.5786, -19.2908)
 
 [node name="puesto13" parent="Tianguis/Puestos" instance=ExtResource("9_bsldh")]
@@ -1141,6 +1156,7 @@ transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, 105.327, 0, -12.0748)
 shape = SubResource("BoxShape3D_3a50u")
 
 [node name="flecha13" parent="Tianguis/Puestos/puesto13" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 104.957, 44.1105, -12.3083)
 
 [node name="puesto14" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
@@ -4478,3 +4494,52 @@ offset_right = 1130.0
 offset_bottom = 599.0
 label_settings = SubResource("LabelSettings_tmqw5")
 horizontal_alignment = 1
+
+[node name="Puntuacion" type="Label" parent="."]
+offset_right = 159.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -163.0
+offset_right = 233.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_5adoj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -112.5
+offset_right = 152.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+text = "Has perdido, te dejaste llevar 
+por la tentación de la música"
+label_settings = SubResource("LabelSettings_vtjen")
+horizontal_alignment = 1
+
+[node name="reiniciar" type="Button" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+text = "Reiniciar"
+
+[connection signal="pressed" from="GameOver/VBoxContainer/reiniciar" to="CharacterBody3D" method="_on_reiniciar_pressed"]

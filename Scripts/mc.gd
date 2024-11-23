@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var label: Label = $"../Label"
+@onready var puntuacion: Label = $"../Puntuacion"
 
 const SPEED = 8.0
 const JUMP_VELOCITY = 4.5
@@ -24,6 +25,8 @@ const JUMP_VELOCITY = 4.5
 @onready var pue15 := $"../Tianguis/Puestos/puesto15/flecha15"
 @onready var pue16 := $"../Tianguis/Puestos/puesto16/flecha16"
 
+@onready var over := $"../GameOver"
+
 @onready var to_visit = generator()
 @onready var counter = 0
 
@@ -46,35 +49,63 @@ func _load_arrows(list):
 	if 2 not in list:
 		pue2.visible = false
 	else:
-		pue1.visible = true
+		pue2.visible = true
 	if 3 not in list:
 		pue3.visible = false
+	else:
+		pue3.visible = true
 	if 4 not in list:
 		pue4.visible = false
+	else:
+		pue4.visible = true
 	if 5 not in list:
 		pue5.visible = false
+	else:
+		pue5.visible = true
 	if 6 not in list:
 		pue6.visible = false
+	else:
+		pue6.visible = true
 	if 7 not in list:
 		pue7.visible = false
+	else:
+		pue7.visible = true
 	if 8 not in list:
 		pue8.visible = false
+	else:
+		pue8.visible = true
 	if 9 not in list:
 		pue9.visible = false
+	else:
+		pue9.visible = true
 	if 10 not in list:
 		pue10.visible = false
+	else:
+		pue10.visible = true
 	if 11 not in list:
 		pue11.visible = false
+	else:
+		pue11.visible = true
 	if 12 not in list:
 		pue12.visible = false
+	else:
+		pue12.visible = true
 	if 13 not in list:
 		pue13.visible = false
+	else:
+		pue13.visible = true
 	if 14 not in list:
 		pue14.visible = false
+	else:
+		pue14.visible = true
 	if 15 not in list:
 		pue15.visible = false
+	else:
+		pue15.visible = true
 	if 16 not in list:
 		pue16.visible = false
+	else:
+		pue16.visible = true
 		
 	
 
@@ -118,23 +149,63 @@ func _physics_process(delta: float) -> void:
 			await get_tree().create_timer(3.0).timeout
 			label.text = "Celular y cartera..."
 			await get_tree().create_timer(3.0).timeout
-			get_tree().reload_current_scene()
+			over.visible = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 		if Input.is_key_pressed(KEY_E) and collider.is_in_group("puestos_group"):
 			print(to_visit)
 			var name = str(collider.name)[6]
 			name += str(collider.name)[7]
 			if int(name) in to_visit:
+				print(name)
+				if name == "01":
+					pue1.visible = false
+				if name == "02":
+					pue2.visible = false
+				if name == "03":
+					pue3.visible = false
+				if name == "04":
+					pue4.visible = false
+				if name == "05":
+					pue5.visible = false
+				if name == "06":
+					pue6.visible = false
+				if name == "07":
+					pue7.visible = false
+				if name == "08":
+					pue8.visible = false
+				if name == "09":
+					pue9.visible = false
+				if name == "10":
+					pue10.visible = false
+				if name == "11":
+					pue11.visible = false
+				if name == "12":
+					pue12.visible = false
+				if name == "13":
+					pue13.visible = false
+				if name == "14":
+					pue14.visible = false
+				if name == "15":
+					pue15.visible = false
+				if name == "16":
+					pue16.visible = false
 				counter += 1
 				to_visit.erase(int(name))
+				puntuacion.text = str(counter)
 			print(collider.name)
 			
 			print(counter)
 			
 		if len(to_visit) == 0:
-			label.text = "Felicidades! Has ganado!"
+			label.text = "Felicidades! Has ganado! Y no te dejaste llevar por la tentación"
 			await get_tree().create_timer(3.0).timeout
+			label.text = ""
 			to_visit = generator()
 
 	move_and_slide()
 	
+
+
+func _on_reiniciar_pressed() -> void:
+	get_tree().reload_current_scene()
