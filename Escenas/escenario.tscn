@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://dlwrc53baif2w"]
+[gd_scene load_steps=57 format=4 uid="uid://dlwrc53baif2w"]
 
 [ext_resource type="PackedScene" uid="uid://b2aet6w1m0ob0" path="res://Importaciones/calle_sincol.glb" id="1_pbajp"]
 [ext_resource type="PackedScene" uid="uid://7jb2ednmuj3c" path="res://Characters/mc.tscn" id="2_s1amq"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b2ld83u8aldea" path="res://Importaciones/Tianguis/puesto1.glb" id="9_j7f24"]
 [ext_resource type="PackedScene" uid="uid://d14fxt8t12ayp" path="res://Importaciones/Tianguis/puesto2.glb" id="9_lxy33"]
 [ext_resource type="AudioStream" uid="uid://b02baaicrlkiu" path="res://chuntaro.mp3" id="12_0qykj"]
+[ext_resource type="PackedScene" uid="uid://dk1wikk6sa6ef" path="res://Importaciones/flecha.glb" id="12_evuq8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00ris"]
 resource_name = "Material.001"
@@ -224,6 +225,38 @@ sky_material = SubResource("ProceduralSkyMaterial_xw3eb")
 background_mode = 2
 background_energy_multiplier = 1.5
 sky = SubResource("Sky_tuqy1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1m3ej"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ne8le"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78dwh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsagt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54jyx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mw20c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xdo0n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6f7rk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t75v2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1vi8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ddgqf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4oa1i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3a50u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sv8fy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qq3bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdudy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbs65"]
 resource_name = "Material.001"
@@ -955,50 +988,199 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.833, 0, 0)
 [node name="puesto4" parent="Tianguis/Puestos" instance=ExtResource("9_bsldh")]
 transform = Transform3D(-0.08, 0, 6.99382e-09, 0, 0.08, 0, -6.99382e-09, 0, -0.08, -12.0305, 0.0518422, -3.48728)
 
+[node name="puesto04" type="StaticBody3D" parent="Tianguis/Puestos/puesto4" groups=["puestos_group"]]
+
+[node name="puesto4" type="CollisionShape3D" parent="Tianguis/Puestos/puesto4/puesto04"]
+transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 1.36424e-12, 0, 25, 104.632, 2.38419e-05, -7.73545)
+shape = SubResource("BoxShape3D_1m3ej")
+
+[node name="flecha4" parent="Tianguis/Puestos/puesto4" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
+transform = Transform3D(9, 0, -6.39488e-14, 0, 9, 0, 6.39488e-14, 0, 9, 107.898, 42.7895, -9.77659)
+
 [node name="puesto3" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
 transform = Transform3D(-0.08, 0, 6.99382e-09, 0, 0.08, 0, -6.99382e-09, 0, -0.08, -18.6456, 0.0559901, -3.58988)
+
+[node name="puesto03" type="StaticBody3D" parent="Tianguis/Puestos/puesto3" groups=["puestos_group"]]
+
+[node name="puesto3" type="CollisionShape3D" parent="Tianguis/Puestos/puesto3/puesto03"]
+transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, -58.3347, 0, -11.3429)
+shape = SubResource("BoxShape3D_ne8le")
+
+[node name="flecha3" parent="Tianguis/Puestos/puesto3" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
+transform = Transform3D(9, 0, -1.13687e-13, 0, 9, 0, 1.13687e-13, 0, 9, -58.4268, 42.4062, -9.47334)
 
 [node name="puesto2" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
 transform = Transform3D(-0.08, 0, 6.99382e-09, 0, 0.08, 0, -6.99382e-09, 0, -0.08, -5.27258, 0.0518427, -3.59925)
 
+[node name="puesto02" type="StaticBody3D" parent="Tianguis/Puestos/puesto2" groups=["puestos_group"]]
+
+[node name="puesto2" type="CollisionShape3D" parent="Tianguis/Puestos/puesto2/puesto02"]
+transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, 24.3061, 0, -9.72246)
+shape = SubResource("BoxShape3D_78dwh")
+
+[node name="flecha2" parent="Tianguis/Puestos/puesto2" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, -1.13687e-13, 0, 9, 0, 1.13687e-13, 0, 9, 23.3395, 43.0296, -10.7981)
+
 [node name="puesto1" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
 transform = Transform3D(-0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 0.890638, 0.0518427, -3.61686)
 
+[node name="puesto01" type="StaticBody3D" parent="Tianguis/Puestos/puesto1" groups=["puestos_group"]]
+
+[node name="puesto1" type="CollisionShape3D" parent="Tianguis/Puestos/puesto1/puesto01"]
+transform = Transform3D(45, 0, 4.54747e-13, 0, 25, 0, 1.36424e-12, 0, 25, 23.4959, 0, -9.72246)
+shape = SubResource("BoxShape3D_jsagt")
+
+[node name="flecha1" parent="Tianguis/Puestos/puesto1" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, -5.68434e-13, 0, 9, 0, 5.68434e-13, 0, 9, 26.183, 44.0511, -9.66705)
+
 [node name="puesto5" parent="Tianguis/Puestos" instance=ExtResource("9_bsldh")]
-transform = Transform3D(-0.08, 0, 6.99382e-09, 0, 0.08, 0, -6.99382e-09, 0, -0.08, -32.7778, 0.0518422, -3.48728)
+transform = Transform3D(-0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, -32.7778, 0.0518422, -3.48728)
+
+[node name="puesto05" type="StaticBody3D" parent="Tianguis/Puestos/puesto5" groups=["puestos_group"]]
+
+[node name="puesto5" type="CollisionShape3D" parent="Tianguis/Puestos/puesto5/puesto05"]
+transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, -64.0062, 0, -8.91225)
+shape = SubResource("BoxShape3D_54jyx")
+
+[node name="flecha5" parent="Tianguis/Puestos/puesto5" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, -5.68434e-13, 0, 9, 0, 5.68434e-13, 0, 9, -64.9162, 48.4702, -15.4329)
 
 [node name="puesto6" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
 transform = Transform3D(-0.08, 0, 6.99382e-09, 0, 0.08, 0, -6.99382e-09, 0, -0.08, -25.8005, 0.0518427, -3.59925)
 
+[node name="puesto06" type="StaticBody3D" parent="Tianguis/Puestos/puesto6" groups=["puestos_group"]]
+
+[node name="puesto6" type="CollisionShape3D" parent="Tianguis/Puestos/puesto6/puesto06"]
+transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, 110.998, 0, -11.3429)
+shape = SubResource("BoxShape3D_mw20c")
+
+[node name="flecha6" parent="Tianguis/Puestos/puesto6" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, -1.13687e-13, 0, 9, 0, 1.13687e-13, 0, 9, 112.235, 43.0173, -15.9284)
+
 [node name="puesto7" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
-transform = Transform3D(-0.08, 0, 6.99382e-09, 0, 0.08, 0, -6.99382e-09, 0, -0.08, -39.3193, 0.0559901, -3.58988)
+transform = Transform3D(-0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, -39.3193, 0.0559901, -3.58988)
+
+[node name="puesto07" type="StaticBody3D" parent="Tianguis/Puestos/puesto7" groups=["puestos_group"]]
+
+[node name="puesto7" type="CollisionShape3D" parent="Tianguis/Puestos/puesto7/puesto07"]
+transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, 23.4959, 0, -9.72247)
+shape = SubResource("BoxShape3D_xdo0n")
+
+[node name="flecha7" parent="Tianguis/Puestos/puesto7" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, -5.68434e-13, 0, 9, 0, 5.68434e-13, 0, 9, 24.2368, 43.6079, -13.6625)
 
 [node name="puesto8" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
 transform = Transform3D(-0.08, 0, 6.99382e-09, 0, 0.08, 0, -6.99382e-09, 0, -0.08, -50.4386, 0.0518427, -3.59925)
 
+[node name="puesto08" type="StaticBody3D" parent="Tianguis/Puestos/puesto8" groups=["puestos_group"]]
+
+[node name="puesto8" type="CollisionShape3D" parent="Tianguis/Puestos/puesto8/puesto08"]
+transform = Transform3D(45, 0, -2.27374e-13, 0, 25, 0, 9.09495e-13, 0, 25, 21.8755, 0, -10.5327)
+shape = SubResource("BoxShape3D_6f7rk")
+
+[node name="flecha8" parent="Tianguis/Puestos/puesto8" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, -1.13687e-13, 0, 9, 0, 1.13687e-13, 0, 9, 24.0753, 46.1477, -22.4267)
+
 [node name="puesto9" parent="Tianguis/Puestos" instance=ExtResource("9_bsldh")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -16.7265, 0.0518422, 12.6867)
+
+[node name="puesto09" type="StaticBody3D" parent="Tianguis/Puestos/puesto9" groups=["puestos_group"]]
+
+[node name="puesto9" type="CollisionShape3D" parent="Tianguis/Puestos/puesto9/puesto09"]
+transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, 197.69, 0, -11.3429)
+shape = SubResource("BoxShape3D_t75v2")
+
+[node name="flecha9" parent="Tianguis/Puestos/puesto9" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 195.515, 42.0531, -17.9395)
 
 [node name="puesto10" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -25.2463, 0.0559901, 12.5841)
 
+[node name="puesto10" type="StaticBody3D" parent="Tianguis/Puestos/puesto10" groups=["puestos_group"]]
+
+[node name="puesto10" type="CollisionShape3D" parent="Tianguis/Puestos/puesto10/puesto10"]
+transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, 209.033, 0, -9.72246)
+shape = SubResource("BoxShape3D_o1vi8")
+
+[node name="flecha10" parent="Tianguis/Puestos/puesto10" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 207.773, 48.3165, -10.356)
+
 [node name="puesto11" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -10.5028, 0.0518427, 12.5747)
+
+[node name="puesto11" type="StaticBody3D" parent="Tianguis/Puestos/puesto11" groups=["puestos_group"]]
+
+[node name="puesto11" type="CollisionShape3D" parent="Tianguis/Puestos/puesto11/puesto11"]
+transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, -51.8531, 0, -8.91228)
+shape = SubResource("BoxShape3D_ddgqf")
+
+[node name="flecha11" parent="Tianguis/Puestos/puesto11" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -53.9526, 44.978, -14.5096)
 
 [node name="puesto12" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -2.96162, 0.0518427, 12.5571)
 
+[node name="puesto12" type="StaticBody3D" parent="Tianguis/Puestos/puesto12" groups=["puestos_group"]]
+
+[node name="puesto12" type="CollisionShape3D" parent="Tianguis/Puestos/puesto12/puesto12"]
+transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, -251.974, 0, -10.5327)
+shape = SubResource("BoxShape3D_4oa1i")
+
+[node name="flecha12" parent="Tianguis/Puestos/puesto12" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -253.48, 44.5786, -19.2908)
+
 [node name="puesto13" parent="Tianguis/Puestos" instance=ExtResource("9_bsldh")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -38.241, 0.0518422, 12.6867)
+
+[node name="puesto13" type="StaticBody3D" parent="Tianguis/Puestos/puesto13" groups=["puestos_group"]]
+
+[node name="puesto13" type="CollisionShape3D" parent="Tianguis/Puestos/puesto13/puesto13"]
+transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, 105.327, 0, -12.0748)
+shape = SubResource("BoxShape3D_3a50u")
+
+[node name="flecha13" parent="Tianguis/Puestos/puesto13" instance=ExtResource("12_evuq8")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 104.957, 44.1105, -12.3083)
 
 [node name="puesto14" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -31.8639, 0.0518427, 12.5747)
 
+[node name="puesto14" type="StaticBody3D" parent="Tianguis/Puestos/puesto14" groups=["puestos_group"]]
+
+[node name="puesto14" type="CollisionShape3D" parent="Tianguis/Puestos/puesto14/puesto14"]
+transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, -52.6633, 0, -8.10207)
+shape = SubResource("BoxShape3D_sv8fy")
+
+[node name="flecha14" parent="Tianguis/Puestos/puesto14" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -52.1031, 42.703, -14.2836)
+
 [node name="puesto15" parent="Tianguis/Puestos" instance=ExtResource("9_j7f24")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -46.3131, 0.0559901, 12.5841)
 
+[node name="puesto15" type="StaticBody3D" parent="Tianguis/Puestos/puesto15" groups=["puestos_group"]]
+
+[node name="puesto15" type="CollisionShape3D" parent="Tianguis/Puestos/puesto15/puesto15"]
+transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, 25.1163, 0, -8.91226)
+shape = SubResource("BoxShape3D_qq3bv")
+
+[node name="flecha15" parent="Tianguis/Puestos/puesto15" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 22.7, 45.4631, -16.1704)
+
 [node name="puesto16" parent="Tianguis/Puestos" instance=ExtResource("9_lxy33")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -55.9683, 0.0518427, 12.5747)
+
+[node name="puesto16" type="StaticBody3D" parent="Tianguis/Puestos/puesto16" groups=["puestos_group"]]
+
+[node name="puesto16" type="CollisionShape3D" parent="Tianguis/Puestos/puesto16/puesto16"]
+transform = Transform3D(45, 0, 0, 0, 25, 0, 0, 0, 25, 25.0964, 0, -8.10207)
+shape = SubResource("BoxShape3D_tdudy")
+
+[node name="flecha16" parent="Tianguis/Puestos/puesto16" instance=ExtResource("12_evuq8")]
+unique_name_in_owner = true
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 22.0921, 41.2664, -13.8062)
 
 [node name="NPCs" type="Node3D" parent="Tianguis"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.833, 0, 0)
@@ -1035,7 +1217,7 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333333, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(0, 0.333333, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(6.73893e-06, 0.000345857, 0, 1)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.006"
 bones/3/parent = 2
@@ -1056,7 +1238,7 @@ bones/5/parent = 4
 bones/5/rest = Transform3D(1, 6.17281e-25, 8.07794e-27, -6.17281e-25, 1, -9.31323e-10, -8.07794e-27, 9.31323e-10, 1, 3.0373e-25, 0.41516, 5.86733e-08)
 bones/5/enabled = true
 bones/5/position = Vector3(3.0373e-25, 0.41516, 5.86733e-08)
-bones/5/rotation = Quaternion(-3.27304e-09, -3.56522e-10, 1.16415e-10, 1)
+bones/5/rotation = Quaternion(-1.23544e-05, -8.81711e-05, -0.000338471, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "Bone.009"
 bones/6/parent = 2
@@ -1084,7 +1266,7 @@ bones/9/parent = 2
 bones/9/rest = Transform3D(1, 2.22036e-16, -2.23967e-16, -2.23967e-16, 0.999963, -0.00865768, 2.22036e-16, 0.00865768, 0.999963, 0, 0.333333, 0)
 bones/9/enabled = true
 bones/9/position = Vector3(0, 0.333333, 0)
-bones/9/rotation = Quaternion(0.00432888, -1.11502e-16, -1.11502e-16, 0.999991)
+bones/9/rotation = Quaternion(0.00432888, 2.07236e-09, -8.97169e-12, 0.999991)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "Bone.013"
 bones/10/parent = 0
@@ -1098,7 +1280,7 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(-0.0194516, 0.246783, -0.968876, 0.999783, -0.00236976, -0.0206757, -0.00739843, -0.969068, -0.246683, -0.886601, 0.448374, 0.00781364)
 bones/11/enabled = true
 bones/11/position = Vector3(-0.886601, 0.448374, 0.00781364)
-bones/11/rotation = Quaternion(0.554437, 0.562086, -0.44021, -0.427637)
+bones/11/rotation = Quaternion(0.554437, 0.562087, -0.44021, -0.427637)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "Bone.004.Bk"
 bones/12/parent = 11
@@ -1163,7 +1345,7 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333333, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(0, 0.333333, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(6.73893e-06, 0.000345857, 0, 1)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.006_2"
 bones/3/parent = 2
@@ -1184,7 +1366,7 @@ bones/5/parent = 4
 bones/5/rest = Transform3D(1, 6.17281e-25, 8.07794e-27, -6.17281e-25, 1, -9.31323e-10, -8.07794e-27, 9.31323e-10, 1, 3.0373e-25, 0.41516, 5.86733e-08)
 bones/5/enabled = true
 bones/5/position = Vector3(3.0373e-25, 0.41516, 5.86733e-08)
-bones/5/rotation = Quaternion(-3.27304e-09, -3.56522e-10, 1.16415e-10, 1)
+bones/5/rotation = Quaternion(-1.23544e-05, -8.81711e-05, -0.000338471, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "Bone.009_2"
 bones/6/parent = 2
@@ -1212,7 +1394,7 @@ bones/9/parent = 2
 bones/9/rest = Transform3D(1, 2.22036e-16, -2.23967e-16, -2.23967e-16, 0.999963, -0.00865768, 2.22036e-16, 0.00865768, 0.999963, 0, 0.333333, 0)
 bones/9/enabled = true
 bones/9/position = Vector3(0, 0.333333, 0)
-bones/9/rotation = Quaternion(0.00432888, -1.11502e-16, -1.11502e-16, 0.999991)
+bones/9/rotation = Quaternion(0.00432888, 2.07236e-09, -8.97169e-12, 0.999991)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "Bone.013_2"
 bones/10/parent = 0
@@ -1226,7 +1408,7 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(-0.0194516, 0.246783, -0.968876, 0.999783, -0.00236976, -0.0206757, -0.00739843, -0.969068, -0.246683, -0.886601, 0.448374, 0.00781364)
 bones/11/enabled = true
 bones/11/position = Vector3(-0.886601, 0.448374, 0.00781364)
-bones/11/rotation = Quaternion(0.554437, 0.562086, -0.44021, -0.427637)
+bones/11/rotation = Quaternion(0.554437, 0.562087, -0.44021, -0.427637)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "Bone.004.Bk_2"
 bones/12/parent = 11

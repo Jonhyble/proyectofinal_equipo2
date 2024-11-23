@@ -3,11 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dcoxuomkcuw2t"
-valid=false
+path="res://.godot/imported/chuntaro.mp3-6b9197210dfbbed81fb0dfc573080ac4.mp3str"
 
 [deps]
 
 source_file="res://Importaciones/Tianguis/chuntaro.mp3"
+dest_files=["res://.godot/imported/chuntaro.mp3-6b9197210dfbbed81fb0dfc573080ac4.mp3str"]
 
 [params]
 
