@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dlwrc53baif2w"]
+[gd_scene load_steps=40 format=4 uid="uid://dlwrc53baif2w"]
 
 [ext_resource type="PackedScene" uid="uid://b2aet6w1m0ob0" path="res://Importaciones/calle_sincol.glb" id="1_pbajp"]
 [ext_resource type="PackedScene" uid="uid://7jb2ednmuj3c" path="res://Characters/mc.tscn" id="2_s1amq"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://du7k4lenrwbw6" path="res://Importaciones/casa_2piso2.glb" id="6_1yai7"]
 [ext_resource type="PackedScene" uid="uid://bd1bo7bno74cc" path="res://Importaciones/casa_2piso1.glb" id="7_4jq3j"]
 [ext_resource type="PackedScene" uid="uid://dyafuk2ohu0b" path="res://Importaciones/Tianguis/puesto3.glb" id="9_bsldh"]
+[ext_resource type="Script" path="res://Escenas/asaltante.gd" id="9_e81hy"]
 [ext_resource type="PackedScene" uid="uid://b2ld83u8aldea" path="res://Importaciones/Tianguis/puesto1.glb" id="9_j7f24"]
 [ext_resource type="PackedScene" uid="uid://d14fxt8t12ayp" path="res://Importaciones/Tianguis/puesto2.glb" id="9_lxy33"]
+[ext_resource type="AudioStream" uid="uid://b02baaicrlkiu" path="res://chuntaro.mp3" id="12_0qykj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00ris"]
 resource_name = "Material.001"
@@ -678,10 +680,16 @@ _data = {
 "idle_001": SubResource("Animation_jig8q")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_tmqw5"]
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_s1amq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5135, 1.25376, 7.67953)
+collision_layer = 3
 
 [node name="Escenario" type="Node3D" parent="."]
 
@@ -782,7 +790,8 @@ transform = Transform3D(-0.0106214, -0.000259582, 1.24995, -0.0305402, 1.24963, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.3663, 0, 8.41373)
 
 [node name="asaltante" type="Node3D" parent="Escenario"]
-transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 1.81559, 0.0147095, 33.0548)
+transform = Transform3D(-0.24, 0, -2.09815e-08, 0, 0.24, 0, 2.09815e-08, 0, -0.24, 2.27661, 0.0147095, 33.0548)
+script = ExtResource("9_e81hy")
 
 [node name="Armature" type="Node3D" parent="Escenario/asaltante"]
 transform = Transform3D(3.69109, 0, 0, 0, 3.69109, 0, 0, 0, 3.69109, 0, 3.27261, 0)
@@ -870,7 +879,7 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(-0.0194516, 0.246783, -0.968876, 0.999783, -0.00236976, -0.0206757, -0.00739843, -0.969068, -0.246683, -0.886601, 0.448374, 0.00781364)
 bones/11/enabled = true
 bones/11/position = Vector3(-0.886601, 0.448374, 0.00781364)
-bones/11/rotation = Quaternion(0.554437, 0.562086, -0.44021, -0.427637)
+bones/11/rotation = Quaternion(0.554437, 0.562087, -0.44021, -0.427637)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "Bone.004.Bk"
 bones/12/parent = 11
@@ -909,6 +918,7 @@ bones/16/rotation = Quaternion(-0.0140773, 6.69114e-14, -1.55508e-08, 0.999901)
 bones/16/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Escenario/asaltante/Armature/Skeleton3D"]
+transform = Transform3D(-0.104528, 0, 0.994522, 0, 1, 0, -0.994522, 0, -0.104528, 0, 0.11058, 0)
 mesh = SubResource("ArrayMesh_2toln")
 skin = SubResource("Skin_1nkio")
 
@@ -918,11 +928,18 @@ libraries = {
 }
 autoplay = "idle_001"
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Escenario/asaltante"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Escenario/asaltante" groups=["asaltante_group"]]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/asaltante/StaticBody3D"]
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_relhb")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Escenario/asaltante"]
+transform = Transform3D(-4.16667, 0, 3.64261e-07, 0, 4.16667, 0, -3.64261e-07, 0, -4.16667, -0.38023, 4.929, 0.0191193)
+stream = ExtResource("12_0qykj")
+volume_db = -30.0
+autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g04ae")
@@ -4271,3 +4288,11 @@ libraries = {
 "": SubResource("AnimationLibrary_pcx1n")
 }
 autoplay = "idle_001"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 527.0
+offset_right = 1130.0
+offset_bottom = 599.0
+label_settings = SubResource("LabelSettings_tmqw5")
+horizontal_alignment = 1

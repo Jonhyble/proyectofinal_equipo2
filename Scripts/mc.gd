@@ -1,11 +1,13 @@
 extends CharacterBody3D
 
+@onready var label: Label = $"../Label"
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -38,5 +40,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		var collider = collision.get_collider()
+		if collider.is_in_group("asaltante_group"):
+			label.text = "Ya te la sabes carnal..."
+			await get_tree().create_timer(3.0).timeout
+			label.text = "Celular y cartera..."
+			await get_tree().create_timer(3.0).timeout
+			get_tree().reload_current_scene()
 
 	move_and_slide()
