@@ -1,15 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci2j42ac3c8v6"]
+[gd_scene load_steps=11 format=3 uid="uid://ci2j42ac3c8v6"]
 
 [ext_resource type="Script" path="res://Scripts/menu_principal.gd" id="1_gk2ma"]
+[ext_resource type="Texture2D" uid="uid://bdng2ipei74wo" path="res://Texturas/Menu.png" id="2_3fy5t"]
+[ext_resource type="FontFile" uid="uid://lsifxbuui4mh" path="res://Fuentes/ARTESANIA display.otf" id="3_7o3ba"]
+
+[sub_resource type="Shader" id="Shader_f3yxt"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1qul"]
+resource_name = "Menu.png"
+shader = SubResource("Shader_f3yxt")
+
+[sub_resource type="Theme" id="Theme_y4grd"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_40yck"]
+
+[sub_resource type="Curve" id="Curve_wetwx"]
+_data = [Vector2(0.0301724, 0.241758), 0.0, 0.0, 0, 0, Vector2(0.564655, 0.527472), 1.36578, 1.36578, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gx5o6"]
+curve = SubResource("Curve_wetwx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g6qfl"]
+texture = SubResource("CurveTexture_gx5o6")
+modulate_color = Color(0.160784, 1, 1, 1)
 
 [node name="Menu" type="Control"]
+texture_filter = 2
+texture_repeat = 3
+material = SubResource("ShaderMaterial_o1qul")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_y4grd")
 script = ExtResource("1_gk2ma")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.686327, 0.848629, 0.949125, 1)
+self_modulate = Color(0.957593, 0.955757, 0.952958, 1)
+texture_filter = 2
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = ExtResource("2_3fy5t")
+expand_mode = 3
+stretch_mode = 2
+flip_h = true
 
 [node name="VBoxBotones" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -18,45 +62,70 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = -149.0
-offset_right = 110.0
-offset_bottom = 114.0
+offset_left = -220.0
+offset_top = -205.0
+offset_right = 220.0
+offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 60
 
 [node name="Titulo" type="Label" parent="VBoxBotones"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0.396078, 1)
+theme_override_colors/font_color = Color(0.970482, 0, 0.472887, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
 theme_override_font_sizes/font_size = 40
 text = "Simulación en realidad 
 virtual para la mejora
  de nuestra ciudad"
 horizontal_alignment = 1
 
-[node name="Jugar" type="Button" parent="VBoxBotones"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxBotones"]
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0.654902, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.654902, 0, 0, 1)
+
+[node name="Jugar" type="Button" parent="VBoxBotones/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.891291, 4.18738e-06, 8.66354e-07, 1)
+theme_override_colors/font_hover_color = Color(0.191342, 0.558982, 0.342699, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.904927, 0.998361, 0.927585, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("3_7o3ba")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxLine_40yck")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g6qfl")
 text = "Jugar"
 flat = true
 
-[node name="Salir" type="Button" parent="VBoxBotones"]
+[node name="Salir" type="Button" parent="VBoxBotones/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0.654902, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.654902, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.464045, 0.304423, 0.0514924, 1)
+theme_override_colors/font_hover_color = Color(0.792157, 0.741176, 0.113725, 1)
+theme_override_colors/font_color = Color(0.999216, 0.900709, 0.774664, 1)
+theme_override_colors/font_outline_color = Color(0.0012695, 0.00055922, 8.41977e-05, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("3_7o3ba")
 theme_override_font_sizes/font_size = 40
 text = "Salir"
 flat = true
 
 [node name="Creditos" type="Label" parent="VBoxBotones"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.114897, 0.114897, 0.114897, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
 text = "Creditos:
 Benavides Hernandez Isaac Alain
 Lomelí Flores Jesús Isaac
 Romo Valadez Jonathan Joshua"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="VBoxBotones/Jugar" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxBotones/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxBotones/VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxBotones/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

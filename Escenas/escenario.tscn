@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d14fxt8t12ayp" path="res://Importaciones/Tianguis/puesto2.glb" id="9_lxy33"]
 [ext_resource type="AudioStream" uid="uid://b02baaicrlkiu" path="res://chuntaro.mp3" id="12_0qykj"]
 [ext_resource type="PackedScene" uid="uid://dk1wikk6sa6ef" path="res://Importaciones/flecha.glb" id="12_evuq8"]
+[ext_resource type="FontFile" uid="uid://lsifxbuui4mh" path="res://Fuentes/ARTESANIA display.otf" id="15_ro4b8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00ris"]
 resource_name = "Material.001"
@@ -716,10 +717,6 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_tmqw5"]
 font_size = 32
 outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_vtjen"]
-outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Node3D" type="Node3D"]
@@ -11902,9 +11899,38 @@ offset_bottom = 599.0
 label_settings = SubResource("LabelSettings_tmqw5")
 horizontal_alignment = 1
 
-[node name="Puntuacion" type="Label" parent="."]
-offset_right = 159.0
-offset_bottom = 39.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -573.0
+offset_right = 583.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Contador" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("15_ro4b8")
+theme_override_font_sizes/font_size = 30
+text = "Puntuación: "
+
+[node name="Puntuacion" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.978113, 0.910095, 0.0260399, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("15_ro4b8")
 theme_override_font_sizes/font_size = 30
 text = "0"
 
@@ -11931,21 +11957,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -152.0
-offset_top = -112.5
+offset_top = -44.5
 offset_right = 152.0
-offset_bottom = 112.5
+offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="GameOver/VBoxContainer"]
+[node name="reinicio" type="Label" parent="GameOver/VBoxContainer"]
 layout_mode = 2
-text = "Has perdido, te dejaste llevar 
-por la tentación de la música"
-label_settings = SubResource("LabelSettings_vtjen")
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("15_ro4b8")
+theme_override_font_sizes/font_size = 25
+text = "Has perdido, te dejaste llevar
+por la tentacion de la música"
 horizontal_alignment = 1
 
 [node name="reiniciar" type="Button" parent="GameOver/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("15_ro4b8")
+theme_override_font_sizes/font_size = 25
 text = "Reiniciar"
 
 [connection signal="pressed" from="GameOver/VBoxContainer/reiniciar" to="CharacterBody3D" method="_on_reiniciar_pressed"]
