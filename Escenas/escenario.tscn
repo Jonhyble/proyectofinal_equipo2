@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://dlwrc53baif2w"]
+[gd_scene load_steps=59 format=4 uid="uid://dlwrc53baif2w"]
 
 [ext_resource type="PackedScene" uid="uid://b2aet6w1m0ob0" path="res://Importaciones/calle_sincol.glb" id="1_pbajp"]
 [ext_resource type="PackedScene" uid="uid://7jb2ednmuj3c" path="res://Characters/mc.tscn" id="2_s1amq"]
@@ -12,9 +12,10 @@
 [ext_resource type="Script" path="res://Escenas/asaltante.gd" id="9_e81hy"]
 [ext_resource type="PackedScene" uid="uid://b2ld83u8aldea" path="res://Importaciones/Tianguis/puesto1.glb" id="9_j7f24"]
 [ext_resource type="PackedScene" uid="uid://d14fxt8t12ayp" path="res://Importaciones/Tianguis/puesto2.glb" id="9_lxy33"]
-[ext_resource type="AudioStream" uid="uid://b02baaicrlkiu" path="res://chuntaro.mp3" id="12_0qykj"]
+[ext_resource type="AudioStream" uid="uid://e1b58bou1bxn" path="res://cumbia.mp3" id="10_0q227"]
 [ext_resource type="PackedScene" uid="uid://dk1wikk6sa6ef" path="res://Importaciones/flecha.glb" id="12_evuq8"]
 [ext_resource type="FontFile" uid="uid://lsifxbuui4mh" path="res://Fuentes/ARTESANIA display.otf" id="15_ro4b8"]
+[ext_resource type="AudioStream" uid="uid://lkm0jw2qgrv6" path="res://Money.mp3" id="16_pnbt6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00ris"]
 resource_name = "Material.001"
@@ -971,8 +972,8 @@ shape = SubResource("CylinderShape3D_relhb")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Escenario/asaltante"]
 transform = Transform3D(-4.16667, 0, 3.64261e-07, 0, 4.16667, 0, -3.64261e-07, 0, -4.16667, -0.38023, 4.929, 0.0191193)
-stream = ExtResource("12_0qykj")
-volume_db = -30.0
+stream = ExtResource("10_0q227")
+volume_db = -25.0
 autoplay = true
 
 [node name="asaltante4" type="Node3D" parent="Escenario"]
@@ -1123,8 +1124,8 @@ shape = SubResource("CylinderShape3D_relhb")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Escenario/asaltante4"]
 transform = Transform3D(-4.16667, 0, 3.64261e-07, 0, 4.16667, 0, -3.64261e-07, 0, -4.16667, -0.38023, 4.929, 0.0191193)
-stream = ExtResource("12_0qykj")
-volume_db = -30.0
+stream = ExtResource("10_0q227")
+volume_db = -25.0
 autoplay = true
 
 [node name="asaltante3" type="Node3D" parent="Escenario"]
@@ -1275,8 +1276,8 @@ shape = SubResource("CylinderShape3D_relhb")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Escenario/asaltante3"]
 transform = Transform3D(-4.16667, 0, 3.64261e-07, 0, 4.16667, 0, -3.64261e-07, 0, -4.16667, -0.38023, 4.929, 0.0191193)
-stream = ExtResource("12_0qykj")
-volume_db = -30.0
+stream = ExtResource("10_0q227")
+volume_db = -25.0
 autoplay = true
 
 [node name="asaltante2" type="Node3D" parent="Escenario"]
@@ -1427,8 +1428,8 @@ shape = SubResource("CylinderShape3D_relhb")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Escenario/asaltante2"]
 transform = Transform3D(-4.16667, 0, 3.64261e-07, 0, 4.16667, 0, -3.64261e-07, 0, -4.16667, -0.38023, 4.929, 0.0191193)
-stream = ExtResource("12_0qykj")
-volume_db = -30.0
+stream = ExtResource("10_0q227")
+volume_db = -25.0
 autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -11891,17 +11892,27 @@ libraries = {
 }
 autoplay = "idle_001"
 
-[node name="Label" type="Label" parent="."]
-offset_left = 20.0
-offset_top = 527.0
-offset_right = 1130.0
-offset_bottom = 599.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_direction = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -75.0
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
 label_settings = SubResource("LabelSettings_tmqw5")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_direction = 1
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -573.0
@@ -11933,6 +11944,56 @@ theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = ExtResource("15_ro4b8")
 theme_override_font_sizes/font_size = 30
 text = "0"
+
+[node name="MenuGanador" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -170.5
+offset_right = 231.0
+offset_bottom = 140.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuGanador"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -44.5
+offset_right = 152.0
+offset_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="label" type="Label" parent="MenuGanador/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("15_ro4b8")
+theme_override_font_sizes/font_size = 25
+text = "¿Deseas continuar?"
+horizontal_alignment = 1
+
+[node name="continuar" type="Button" parent="MenuGanador/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_ro4b8")
+theme_override_font_sizes/font_size = 25
+text = "Continuar"
+
+[node name="salir" type="Button" parent="MenuGanador/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_ro4b8")
+theme_override_font_sizes/font_size = 25
+text = "Salir"
 
 [node name="GameOver" type="Control" parent="."]
 visible = false
@@ -11979,4 +12040,9 @@ theme_override_fonts/font = ExtResource("15_ro4b8")
 theme_override_font_sizes/font_size = 25
 text = "Reiniciar"
 
+[node name="Money" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_pnbt6")
+
+[connection signal="pressed" from="MenuGanador/VBoxContainer/continuar" to="CharacterBody3D" method="_on_continuar_pressed"]
+[connection signal="pressed" from="MenuGanador/VBoxContainer/salir" to="CharacterBody3D" method="_on_salir_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/reiniciar" to="CharacterBody3D" method="_on_reiniciar_pressed"]

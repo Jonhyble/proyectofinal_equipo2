@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@onready var label: Label = $"../Label"
-@onready var puntuacion: Label = $"../Puntuacion"
+@onready var label: Label = $"../HBoxContainer2/Label"
+@onready var puntuacion: Label = $"../HBoxContainer/Puntuacion"
 
 const SPEED = 8.0
 const JUMP_VELOCITY = 4.5
@@ -56,7 +56,9 @@ const JUMP_VELOCITY = 4.5
 @onready var pue46 := $"../Tianguis/Puestos3/puesto14/flecha14"
 @onready var pue47 := $"../Tianguis/Puestos3/puesto15/flecha15"
 @onready var pue48 := $"../Tianguis/Puestos3/puesto16/flecha16"
+@onready var money: AudioStreamPlayer = $"../Money"
 
+@onready var menu_ganador: Control = $"../MenuGanador"
 @onready var over := $"../GameOver"
 
 @onready var to_visit = generator()
@@ -350,6 +352,8 @@ func _physics_process(delta: float) -> void:
 				if name == "16":
 					pue16.visible = false
 				counter += 1
+				print("Kaching")
+				money.play()
 				to_visit.erase(int(name))
 				puntuacion.text = str(counter)
 			print(collider.name)
@@ -395,6 +399,8 @@ func _physics_process(delta: float) -> void:
 				if name == "16":
 					pue32.visible = false
 				counter += 1
+				print("Kaching")
+				money.play()
 				to_visit.erase(int(name) + 16)
 				puntuacion.text = str(counter)
 			print(collider.name)
@@ -440,6 +446,8 @@ func _physics_process(delta: float) -> void:
 				if name == "16":
 					pue48.visible = false
 				counter += 1
+				print("Kaching")
+				money.play()
 				to_visit.erase(int(name) + 32)
 				puntuacion.text = str(counter)
 			print(collider.name)
@@ -450,7 +458,9 @@ func _physics_process(delta: float) -> void:
 			label.text = "Felicidades! Has ganado! Y no te dejaste llevar por la tentación"
 			await get_tree().create_timer(3.0).timeout
 			label.text = ""
-			to_visit = generator()
+			menu_ganador.visible = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			
 
 	move_and_slide()
 	
@@ -458,3 +468,12 @@ func _physics_process(delta: float) -> void:
 
 func _on_reiniciar_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_salir_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_continuar_pressed() -> void:
+	menu_ganador.visible = false
+	to_visit = generator()
